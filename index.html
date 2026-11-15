@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>中年失业后，你的下一个来钱方向</title>
+<style>
+  :root{
+    --acc:#12558c; --acc2:#3f93cc; --amber:#e08a2e;
+    --bg1:#f4f9fd; --bg2:#d9e9f6;
+    --ink:#12314a; --sub:#5f8298; --card:#ffffff; --line:#c8e0f0;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  body{font-family:"PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink);
+    background:linear-gradient(160deg,var(--bg1),var(--bg2));min-height:100vh}
+  .wrap{max-width:430px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column;padding:18px 18px 28px}
+
+  /* ---------- 首页 ---------- */
+  .hero{text-align:center;padding:26px 8px 18px}
+  .hero .emoji{font-size:54px;line-height:1}
+  .hero h1{font-size:25px;line-height:1.45;margin:14px 4px 8px;font-weight:800}
+  .hero h1 .hl{color:var(--acc)}
+  .hero .sub{font-size:14px;color:var(--sub);margin-bottom:18px;line-height:1.7}
+  .tags{display:flex;flex-direction:column;gap:9px;margin:6px 4px 20px}
+  .tag{background:var(--card);border-radius:14px;padding:12px 14px;font-size:14px;text-align:left;
+    box-shadow:0 2px 10px rgba(18,85,140,.10);border:1px solid var(--line)}
+  .tag b{color:var(--acc)}
+  .btn{display:block;width:100%;padding:16px;border:none;border-radius:999px;font-size:18px;font-weight:700;
+    color:#fff;background:linear-gradient(90deg,var(--acc),var(--acc2));cursor:pointer;
+    box-shadow:0 6px 18px rgba(18,85,140,.30);letter-spacing:2px}
+  .btn:active{transform:scale(.97)}
+  .footnote{text-align:center;font-size:12px;color:#90aec0;margin-top:14px;line-height:1.7}
+  .deco{margin-top:22px;font-size:13px;color:#9cbccd;text-align:center;line-height:1.9}
+
+  /* ---------- 答题 ---------- */
+  .bar{height:8px;background:#cfe4f3;border-radius:99px;overflow:hidden;margin:10px 0 6px}
+  .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--acc),var(--acc2));border-radius:99px;transition:width .3s}
+  .count{text-align:right;font-size:12px;color:var(--sub);margin-bottom:10px}
+  .q{background:var(--card);border-radius:18px;padding:20px 16px;font-size:17px;font-weight:700;line-height:1.6;
+    box-shadow:0 4px 14px rgba(18,85,140,.12);margin-bottom:16px}
+  .q .num{display:inline-block;font-size:12px;font-weight:600;color:#fff;background:var(--acc2);
+    border-radius:99px;padding:3px 10px;margin-bottom:10px}
+  .opts{display:flex;flex-direction:column;gap:11px}
+  .opt{background:var(--card);border:1.5px solid var(--line);border-radius:15px;padding:14px 15px;font-size:15px;
+    line-height:1.55;text-align:left;cursor:pointer;transition:.15s;color:var(--ink)}
+  .opt:active{background:var(--bg1);border-color:var(--acc);transform:scale(.98)}
+
+  /* ---------- 结果 ---------- */
+  .result{text-align:center;padding-top:22px}
+  .result .emoji{font-size:56px}
+  .result .name{font-size:24px;font-weight:800;color:var(--acc);margin-top:10px}
+  .result .tagline{font-size:15px;color:var(--amber);margin-top:6px;font-weight:700}
+  .card{background:var(--card);border-radius:18px;padding:18px 16px;text-align:left;margin-top:16px;
+    box-shadow:0 4px 14px rgba(18,85,140,.12);font-size:14px;line-height:1.85}
+  .card h3{font-size:13px;color:var(--acc);margin-bottom:8px;letter-spacing:1px}
+  .card.step{border-left:4px solid var(--amber)}
+  .card.step h3{color:var(--amber)}
+  .stat{font-size:12px;color:var(--sub);margin-top:14px;line-height:1.7}
+  .share{margin-top:16px;padding:14px;border:none;border-radius:999px;font-size:15px;font-weight:700;
+    color:var(--acc);background:#fff;border:1.5px solid var(--acc);cursor:pointer;width:100%}
+  .again{margin-top:10px}
+  .hidden{display:none}
+  @keyframes pop{0%{transform:scale(.8);opacity:0}100%{transform:scale(1);opacity:1}}
+  .pop{animation:pop .35s ease}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- 首页 -->
+  <section id="home">
+    <div class="hero">
+      <div class="emoji">🧭</div>
+      <h1>中年失业后，你的<br><span class="hl">下一个来钱方向</span></h1>
+      <div class="sub">不看简历、不看年龄，只看你手上真正剩下的东西</div>
+    </div>
+    <div class="tags">
+      <div class="tag">✅ <b>处境自查</b>｜存款、房贷、家里怎么想</div>
+      <div class="tag">✅ <b>底牌盘点</b>｜你身上还能换钱的资产</div>
+      <div class="tag">✅ <b>方向匹配</b>｜十条来钱路子对号入座</div>
+      <div class="tag">✅ <b>第一步</b>｜这周就能动手的一件事</div>
+    </div>
+    <button class="btn" onclick="start()">点击测试 →</button>
+    <div class="footnote">趣味测评，不构成职业或投资建议</div>
+    <div class="deco">32 道真实处境题 · 10 条来钱方向 · 约 3 分钟<br>答完记得回评论区报方向 👀</div>
+  </section>
+
+  <!-- 答题 -->
+  <section id="quiz" class="hidden">
+    <div class="bar"><i id="pbar"></i></div>
+    <div class="count"><span id="cnow">1</span> / 32</div>
+    <div class="q"><span class="num" id="qnum"></span><br><span id="qtext"></span></div>
+    <div class="opts" id="opts"></div>
+  </section>
+
+  <!-- 结果 -->
+  <section id="res" class="hidden">
+    <div class="result">
+      <div class="emoji pop" id="remoji">🧭</div>
+      <div class="name pop" id="rname"></div>
+      <div class="tagline pop" id="rtag"></div>
+      <div class="card"><h3>🔍 方向档案</h3><div id="rbody"></div></div>
+      <div class="card step"><h3>🚶 你的第一步（这周就能做）</h3><div id="rstep"></div></div>
+      <div class="card"><h3>⚠️ 这条路上最容易栽的坑</h3><div id="rwarn"></div></div>
+      <div class="stat" id="rstat"></div>
+      <button class="share" onclick="copyRes()">📋 复制方向，去评论区对答案</button>
+      <button class="share again" onclick="location.reload()">🔄 再测一次（换个心情？）</button>
+      <div class="footnote">趣味测评，不构成职业或投资建议</div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+const TYPES = {
+ A:{e:"🔧",n:"手艺切片型",t:"把老本行拆开，一片一片卖",
+    b:"你不是没本事，是本事一直整包卖。以前卖给一家公司，一个月一次；现在要拆开卖：一次上门、一次救急、一次代做、一次陪跑。整包卖得有人给你一个岗位，单片卖只要有人当下有麻烦。",
+    s:"把你最拿手的事列三条，每条写清谁能用、什么场景、多少钱一次。这周找三个人，主动说「这事我能做，多少钱」，别等人来问。",
+    w:"别一上来就做课程、做品牌。先收到第一笔上门的钱，再谈规模。中年起步最怕「仪式感比收入先到」。"},
+ B:{e:"🤝",n:"熟人转介型",t:"你不缺机会，缺的是开口",
+    b:"这些年你攒下的不是技能清单，是一张活地图：谁在什么位置、谁缺什么、谁能把两边接上。中年失业最被低估的资产就是这个——很多钱不是做出来的，是接出来的。",
+    s:"挑五个还联系得上的老同事老客户，一个个发：我现在自己出来做了，你那边有需要随时喊我。别群发，别求职口气。",
+    w:"转介的钱来得快，断得也快。手里至少留一条自己能独立交付的线，不然别人一停你就归零。"},
+ C:{e:"🏘️",n:"社区贴身型",t:"钱就在楼下三百米",
+    b:"你不用跟全国的人竞争，只要比隔壁小区的人多会一点。接送、代收、清洗、修修补补、照看宠物、陪老人跑医院——单价不高，但离得近、结得快、不看年龄，也不要简历。",
+    s:"在小区群里先做三单免费的，做完让人帮你说一句。第一周不谈价，第二周开始明码标价，把价目表贴在群公告里。",
+    w:"邻里生意最容易变成「顺手帮个忙」。价格和边界先说清，不然你会在熟人的客气里白干三个月。"},
+ D:{e:"📱",n:"内行内容型",t:"干了半辈子，你就是内容",
+    b:"你最值钱的东西是知道，而外面全是听说。一个真干过的人在镜头前讲三分钟，胜过十个念稿的号。你不用表演，只要把踩过的坑、算过的账、见过的套路讲清楚，自然有人来找你。",
+    s:"别急着做账号，先做十条：一条只讲一个具体问题，手机横着拍，露脸。发出去别盯播放量，只看有没有人来问。",
+    w:"前二十条是练手不是考试。中年做内容最容易死在「发了三条没火就断定自己不行」。"},
+ E:{e:"🛒",n:"小摊实做型",t:"一手交钱一手交货，最实在",
+    b:"你信看得见的钱。摆摊、小档口、早餐夜宵、上门做饭，这类生意毛利透明、当天结算，不用等回款，也不怕被优化。辛苦是真的，但每一分钟都在自己账上。",
+    s:"别租店面。先找一个能日租的位置，只卖三样东西，试十四天，看哪个走得动，再决定加不加货。",
+    w:"餐饮的坑在备货和损耗，不在手艺。前两周宁可少备、贵卖，也别把本钱压在卖不掉的货上。"},
+ F:{e:"💻",n:"线上接单型",t:"一台电脑就是一间办公室",
+    b:"你会的那点办公技能其实很值钱：做表、写材料、排版、剪视频、整理资料、远程助理，哪怕只是会用 AI 工具。这类活按单结算、不限年龄、不问你上一份工作，只看交出来的东西。",
+    s:"挑一件能在四小时内交付的事，做三个样品，挂到两个平台，报价压到能立刻成交。先要评价，再要价钱。",
+    w:"线上最容易被压价。低价换评价可以，但设个期限——三个月后必须涨，不然你会一直卖在最低价。"},
+ G:{e:"🏃",n:"现金流过渡型",t:"先把水接上，再谈方向",
+    b:"你现在最缺的不一定是方向，是「这个月能进钱」。跑车、跑腿、分拣、临时工、活动执行，这类活不体面也不长久，但能在三十天里把现金流接上，让你在找工作、试方向的时候不用做被逼出来的决定。",
+    s:"先算一个数：每月必须进多少才不慌。用过渡活把这条线兜住，剩下的时间全部投给真正的方向。",
+    w:"过渡最怕变成定居。给自己写个截止日，贴在能看见的地方，到期必须重新评估一次。"},
+ H:{e:"🎓",n:"带人教学型",t:"你会的东西，正有人愿意付钱学",
+    b:"你早过了跟人比谁强的阶段，现在真正的优势是「我干过，我知道坑在哪」。带徒弟、开小班、做一对一陪跑、给同行做答疑——中年人教年轻人，是最不看学历、也最不看年龄的生意。",
+    s:"先免费带两个人，把过程记下来。三周后你会发现被问得最多的三个问题，那就是你的收费产品。",
+    w:"别先做课再找人。先有人付钱，再去录内容；反过来做的，大多录完就没人看。"},
+ I:{e:"📦",n:"货源分销型",t:"不用生产，只要找对货",
+    b:"你不一定想站柜台，但你对「哪里便宜、哪家靠谱」有直觉。社区团购、一件代发、给店里供货、帮人找货，赚的是差价和信息，本钱可以很小，试错可以很快。",
+    s:"先只做一款：挑一个有把握的品类，小批量进十件，卖完再加。别一次压三种货，别信别人的爆款截图。",
+    w:"分销的坑在「看别人卖爆」。别人的爆款配的是别人的渠道，你要先测自己这一小片人买不买。"},
+ J:{e:"🧱",n:"稳守盘面型",t:"先守住，再翻盘",
+    b:"你不是不敢动，是知道家里还有人指望着你。先守住现金流、先削掉固定支出、先找一份能兼顾家庭的活，这不是退，是把战线缩短。中年翻盘靠的不是胆子，是余粮和节奏。",
+    s:"这个月只做一件事：把固定支出拉个清单，砍掉能砍的三成，算清最少要挣多少。数字清楚了，选择就不慌了。",
+    w:"稳守也要有截止日。定一个「三个月后必须重新评估」的日子，不然守着守着就守成了习惯。"}
+};
+
+const QS = [
+ ["被通知「下个月不用来了」那天，你最先想的是：",
+  ["家里的固定支出怎么填","J"],
+  ["这身本事还有谁愿意花钱买","A"],
+  ["能不能马上接点零活顶上去","F"],
+  ["那件压了很久的事，终于能试试了","E"]],
+ ["简历投出去三十份，一条回音都没有：",
+  ["换个写法，把做成的结果提到最前面","A"],
+  ["直接问老同事、老客户手里有没有活","B"],
+  ["先去做马上能见钱的事，简历先放着","G"],
+  ["把这段经历拍出来，反正也没什么可藏的","D"]],
+ ["你手机里最「值钱」的东西是：",
+  ["一堆客户微信和以前的报价单","B"],
+  ["小区几个群，四五百号人都在里头","C"],
+  ["自己攒了多年的资料、笔记、模板","H"],
+  ["一堆接单、比价、剪辑的 App","F"]],
+ ["老同事约你吃饭，聊到一半问「最近怎么样」：",
+  ["实话实说，顺便问他那边缺不缺人","B"],
+  ["说在弄点小生意，刚起步","E"],
+  ["说就在楼下找点事，跑得开","C"],
+  ["说在做内容，让他关注一下","D"]],
+ ["现在最难回答的一句话是：",
+  ["「你以前那套，现在还卖得动吗」","A"],
+  ["「那你现在靠什么挣钱」","G"],
+  ["「要不要我帮你介绍个活」","B"],
+  ["「你怎么不去做直播」","D"]],
+ ["手上有两万块可以动，你会放在：",
+  ["一套能上门干活的工具","C"],
+  ["一批货，先小批量试水","I"],
+  ["一部能拍能剪的手机和设备","D"],
+  ["不动，留着当缓冲","J"]],
+ ["体力这块，你现在：",
+  ["干一天重活，第二天还能缓过来","E"],
+  ["跑一天车、跑一天腿，没问题","G"],
+  ["手上的活干一整天可以，粗活不行了","A"],
+  ["得挑能坐着的，或者时间能自己定","F"]],
+ ["家里人的态度是：",
+  ["让我先找份稳定的，别折腾","J"],
+  ["说楼下邻居都缺人帮忙，不如就近做点事","C"],
+  ["说不如自己做点小买卖","E"],
+  ["不太管，只要我别借钱、别乱投","I"]],
+ ["刷到「40 岁失业后我靠 XX 月入三万」，你会：",
+  ["先扒成本，看这事到底能不能落地","E"],
+  ["想他第一批客户是从哪儿来的","B"],
+  ["觉得这题材我能拍得比他真","D"],
+  ["存下来，回头讲给几个想干的人听","H"]],
+ ["你干过最「接地气」的活是：",
+  ["帮邻居修东西、搬东西，顺手就干了","C"],
+  ["在群里帮人团过菜、带过货","I"],
+  ["过年帮亲戚摆摊、看过档口","E"],
+  ["带过徒弟、教过新人上手","H"]],
+ ["有人拉你进一个陌生的小区群发广告，你会：",
+  ["不发广告，先帮人解决一个问题","C"],
+  ["先发个小红包，再问有没有人要","I"],
+  ["直接找群主谈合作分成","B"],
+  ["不进去，我更愿意在平台上等人来找","F"]],
+ ["你手上现在最有底的资源是：",
+  ["认识的人多，谁干什么我都清楚","B"],
+  ["干过的活，别人替不了","A"],
+  ["时间多，能随时出动","G"],
+  ["什么价能做、什么价不能做，我心里清楚","J"]],
+ ["让你免费帮一天忙，你选：",
+  ["帮一个老板带一天新人","H"],
+  ["帮人拍一条宣传视频","D"],
+  ["帮邻居接送孩子、遛狗","C"],
+  ["帮人整理表格、跑一套流程","F"]],
+ ["学新东西，你的方式是：",
+  ["边接单边学，交出去就是练成","F"],
+  ["先带两个人一起干，边教边学","H"],
+  ["自己看教程，反复练到能拿出手","A"],
+  ["跟着邻居、老伙计一起摸，边干边问","C"]],
+ ["你最受不了的工作状态是：",
+  ["天天开会，一天下来啥也没落地","A"],
+  ["离家太远，一天在路上耗两小时","C"],
+  ["做出来没人看见，等于白干","D"],
+  ["一个人对着屏幕，一天说不上几句话","H"]],
+ ["「面子」这件事，你现在：",
+  ["不太重要了，能挣钱就行","G"],
+  ["在小区里做没问题，出门摆摊有点难为情","C"],
+  ["完全放下，我拍视频就露脸讲","D"],
+  ["还挺重要，所以我更愿意讲给懂行的人听","H"]],
+ ["有人想跟你学你以前那套本事，你会：",
+  ["一对一教，收点学费","H"],
+  ["让他先跟我干几天，边干边教","A"],
+  ["录成课，一次录好反复卖","D"],
+  ["不教，教会徒弟饿死师傅","J"]],
+ ["你现在的一天怎么安排：",
+  ["上午找活，下午干活，晚上算账","F"],
+  ["早上进货，白天守摊","E"],
+  ["不定，有活就干，没活就歇","G"],
+  ["按孩子的作息走，空档才是我自己的","C"]],
+ ["你算过「一个月最少要挣多少才不慌」吗：",
+  ["算过，写在纸上，还列了削减清单","J"],
+  ["算过，但现在的进账离那个数还差一截","G"],
+  ["没算，能挣多少算多少","I"],
+  ["只算过要还多少，没算要挣多少","F"]],
+ ["以前单位的客户，现在还找你吗：",
+  ["有，常问我能不能私下帮着做一份","A"],
+  ["有，问我这边有没有合适的人","B"],
+  ["有，问我那套流程怎么走","H"],
+  ["有，问我能不能帮他们找货、拿货","I"]],
+ ["让你对着镜头讲三分钟你的老本行：",
+  ["张口就来，这是我最熟的事","D"],
+  ["能讲，但我更愿意讲给一个人听","H"],
+  ["讲不出，我干活比说话强","A"],
+  ["不想露脸，声音出镜行不行","F"]],
+ ["现在的年轻人做的东西，你看：",
+  ["学得快，我得跟着学","F"],
+  ["花架子多，真功夫少","A"],
+  ["有些点子确实好，可以合作","B"],
+  ["有些我看不懂，但他们缺货源","I"]],
+ ["手里有个小推车，还有个熟人给的空位，你：",
+  ["先试试卖早餐或夜宵","E"],
+  ["摆点日用杂货，看哪个动销好","I"],
+  ["不摆，但能帮人张罗、找位置","H"],
+  ["先算租金、原料、人工，算清再动","J"]],
+ ["你最愿意接的活是：",
+  ["一次一结，当场给钱","G"],
+  ["一个月一结，稳定","J"],
+  ["干完这单能带来下一单","B"],
+  ["干完能攒成案例，以后好卖","A"]],
+ ["别人说你「不像干这个的」，你：",
+  ["有点不服，做给他看","E"],
+  ["无所谓，能收钱就行","G"],
+  ["正好，这就是我的差异点","D"],
+  ["那我去小区里找点实在的活","C"]],
+ ["让你去跑外卖、开网约车，你的想法：",
+  ["能干，先把现金流接上","G"],
+  ["能干，但只能当过渡","J"],
+  ["干不了，身体吃不消","A"],
+  ["我不跑，但我能帮人介绍、排班","H"]],
+ ["你有一门别人不会的手艺，但没客人：",
+  ["去小区里免费做三单，让人看见","C"],
+  ["拍成短视频，讲清这东西值在哪","D"],
+  ["找装修队、门店谈合作，让他们带单","B"],
+  ["先去平台挂单，攒评价","F"]],
+ ["孩子、老人那头的开销，现在：",
+  ["一分不能减，只能往上挣","G"],
+  ["已经在削了，能省则省","J"],
+  ["让另一半先扛，我这边轻装上阵","I"],
+  ["家里支持我先在网上接点单试试","F"]],
+ ["一件事做三个月还没见钱，你：",
+  ["停，换下一个","I"],
+  ["再撑三个月，方向没错","J"],
+  ["换个卖法，看能不能救","E"],
+  ["把过程写出来发出去，先攒人","D"]],
+ ["你最想甩掉的东西是：",
+  ["那身「我以前是 XX 总」的壳","E"],
+  ["对稳定工资的依赖","I"],
+  ["什么都想自己扛的习惯","B"],
+  ["对失败的怕","G"]],
+ ["现在给你三个选择，你选：",
+  ["一份工资不高但稳定的岗","J"],
+  ["一个能自己定价的小生意","E"],
+  ["一个按单结算的平台账号","F"],
+  ["一个靠人脉撮合的机会","B"]],
+ ["用一个词形容你现在的状态：",
+  ["憋着","E"],
+  ["算着","J"],
+  ["试着","I"],
+  ["扛着","G"]]
+];
+
+let idx = 0, score = {};
+const $ = id => document.getElementById(id);
+
+function start(){
+  idx = 0; score = {};
+  $("home").classList.add("hidden");
+  $("quiz").classList.remove("hidden");
+  render();
+}
+function render(){
+  const q = QS[idx];
+  $("qnum").textContent = "第 " + (idx+1) + " 题";
+  $("qtext").textContent = q[0];
+  $("cnow").textContent = idx+1;
+  $("pbar").style.width = (idx/32*100) + "%";
+  const box = $("opts"); box.innerHTML = "";
+  q.slice(1).forEach(([text,key])=>{
+    const b = document.createElement("button");
+    b.className = "opt"; b.textContent = text;
+    b.onclick = ()=>pick(key);
+    box.appendChild(b);
+  });
+  window.scrollTo(0,0);
+}
+function pick(key){
+  score[key] = (score[key]||0) + 1;
+  idx++;
+  if(idx < QS.length) render(); else show();
+}
+function show(){
+  $("quiz").classList.add("hidden");
+  $("res").classList.remove("hidden");
+  const order = ["A","B","C","D","E","F","G","H","I","J"];
+  let best = order[0];
+  order.forEach(k=>{ if((score[k]||0) > (score[best]||0)) best = k; });
+  const t = TYPES[best];
+  $("remoji").textContent = t.e;
+  $("rname").textContent = t.n;
+  $("rtag").textContent = "—— " + t.t + " ——";
+  $("rbody").textContent = t.b;
+  $("rstep").textContent = t.s;
+  $("rwarn").textContent = t.w;
+  const sorted = order.map(k=>[k,score[k]||0]).sort((a,b)=>b[1]-a[1]);
+  const second = TYPES[sorted[1][0]];
+  $("rstat").textContent = "次高方向：" + second.n + "（" + second.t + "）· 32 题答完，"
+    + (score[best]||0) + " 题指向这个方向。两条路并不冲突，很多人是「先走一条兜底，再养第二条」。";
+  $("res").dataset.text = "我在「中年失业后，你的下一个来钱方向」里测出了【" + t.n + "】："
+    + t.t + "。" + t.s + " 来测测你的方向 →";
+  window.scrollTo(0,0);
+}
+function copyRes(){
+  const text = $("res").dataset.text;
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(()=>alert("已复制，去评论区报方向吧 👀"));
+  }else{
+    const ta = document.createElement("textarea");
+    ta.value = text; document.body.appendChild(ta); ta.select();
+    document.execCommand("copy"); document.body.removeChild(ta);
+    alert("已复制，去评论区报方向吧 👀");
+  }
+}
+</script>
+</body>
+</html>
